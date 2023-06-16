@@ -1,4 +1,4 @@
-def containerName="insure_me_conatiner"
+def containerName="insure_me_container"
 def tag="latest"
 def dockerHubUser="harshithaanand"
 def http="8084"
@@ -15,7 +15,7 @@ node{
     }
     
     stage('publish test reports'){
-       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure_Me_Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
        }
 
 	stage("Image Prune"){
@@ -37,6 +37,7 @@ node{
    }
    stage('Ansible'){
    ansiblePlaybook credentialsId: 'Ansible_jenkins', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/ansible_playbook.yml'
- 
+   echo "Build Successful"
  }
- 
+}
+
