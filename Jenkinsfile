@@ -15,7 +15,7 @@ node{
     }
     
     stage('publish test reports'){
-       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure_Me_Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure_Me/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
        }
 
 	stage("Image Prune"){
@@ -28,8 +28,8 @@ node{
     }
 
 	stage('Push to Docker Registry') {
-	   withCredentials([usernamePassword(credentialsId: 'DockerHub_Credentials', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUser')]) {  
-	        sh "docker login -u $dockerUser -p $dockerPassword"
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
+            sh "docker login -u $dockerUser -p $dockerPassword"
             sh "docker tag $containerName:$tag $dockerUser/$containerName:$tag"
             sh "docker push $dockerUser/$containerName:$tag"
             echo "Image push complete"
