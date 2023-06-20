@@ -13,10 +13,6 @@ node{
 	     echo "Cleaning... Compiling...Testing... Packaging..."
 	     sh "mvn clean install"
     }
-    
-    stage('publish test reports'){
-       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure_Me/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-       }
 
 	stage("Image Prune"){
 	   sh "docker image prune -a -f"
