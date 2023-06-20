@@ -1,6 +1,6 @@
-def containerName="insure_me_container"
+def containerName="insure_me"
 def tag="latest"
-def dockerHubUser="harshithaanand"
+def dockerHubUser="dilipdil"
 def http="8084"
 
 
@@ -35,9 +35,6 @@ node{
             echo "Image push complete"
         }
    }
-   stage('Ansible'){
-   ansiblePlaybook credentialsId: 'Ansible_jenkins', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/ansible_playbook.yml'
-   echo "Build Successful"
- }
+
 }
 
