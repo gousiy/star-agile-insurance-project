@@ -31,6 +31,9 @@ node{
             echo "Image push complete"
         }
    }
-
+	stage("ansible") {
+	ansiblePlaybook credentialsId: 'ubuntu', installation: 'ansible', inventory: 'dev.inv', playbook: 'ansible-playbook.yml'
+   }
 }
+	
 
