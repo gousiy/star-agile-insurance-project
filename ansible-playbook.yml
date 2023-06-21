@@ -13,5 +13,5 @@
     command : sudo systemctl start docker
 
   - name: Deploy Docker Container
-    command: docker run -itd -p 8080:8081 dilipdil/insure_me
+    command: docker run -itd -p 8080:8081 alishataj/insure_me
                                                                 
