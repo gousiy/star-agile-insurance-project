@@ -6,7 +6,7 @@ def http="8084"
 
 node{
 	stage('checkout'){
-	    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Dilipdil3/star-agile-insurance-project.git']])
+	    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/gousiy/star-agile-insurance-project.git']])
     }
 
 	stage('Build'){
