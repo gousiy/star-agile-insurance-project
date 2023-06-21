@@ -1,6 +1,6 @@
 def containerName="insure_me"
 def tag="latest"
-def dockerHubUser="dilipdil"
+def dockerHubUser="alishataj"
 def http="8084"
 
 
