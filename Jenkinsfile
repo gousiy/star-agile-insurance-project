@@ -32,7 +32,7 @@ node{
         }
    }
 	stage("ansible") {
-	ansiblePlaybook credentialsId: 'jenkins', installation: 'Ansible', inventory: 'dev.inv', playbook: 'ansible-playbook.yml'
+	ansiblePlaybook credentialsId: 'jenkins', installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
    }
 }
 	
